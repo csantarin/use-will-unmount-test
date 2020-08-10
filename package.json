@@ -1,6 +1,7 @@
 {
-  "name": "use-will-unmount",
+  "name": "use-will-unmount-ref-test",
   "version": "0.1.0",
+  "description": "Proof-of-concept for a hook that invokes a callback only when a component unmounts.",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",

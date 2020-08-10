@@ -1,44 +1,67 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Unmount Hook React Ref Test
 
-## Available Scripts
+## Overview
+This source code demonstrates why you need to have a React ref pointing to the latest reference of a function passed as a callback to an unmount-only hook when a component consuming an unmount hook rerenders.
 
-In the project directory, you can run:
+This source code contains a what-if sccenario where you remove that ref, plus a test to prove whether or not the no-ref callback will succeed. The callback in this case originates from a prop passed down by a consumer higher in the component hierarchy tree.
 
-### `yarn start`
+> **ℹ NOTE**
+> The hook in this source code already exists as an implementation in an existing library: [`react-use`](https://www.npmjs.com/package/react-use).
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Sources
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- https://github.com/streamich/react-use/blob/master/src/useUnmount.ts
+- https://github.com/streamich/react-use/blob/master/tests/useUnmount.test.ts
 
-### `yarn test`
+## Setup
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone this repo to your local.
+	```bash
+	git clone https://github.com/csantarin/use-will-unmount.git
+	```
 
-### `yarn build`
+2. Browse to the local copy.
+	```bash
+	cd use-will-unmount
+	```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Install all dependencies.
+	```bash
+	yarn
+	```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+4. Run test
+	```bash
+	yarn test
+	```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+5. Expect test scripts to fail after a complete run. It should look like this:
+	```bash
+	 FAIL  src/use-will-unmount.spec.ts
+	● useWillUnmountWithoutRef › should call provided callback if is has been changed
 
-### `yarn eject`
+		expect(jest.fn()).not.toHaveBeenCalled()
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+		Expected number of calls: 0
+		Received number of calls: 1
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+		1: called with 0 arguments
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+		39 |     hook.unmount();
+		40 | 
+		> 41 |     expect(spy).not.toHaveBeenCalled();
+			|                     ^
+		42 |     expect(spy2).not.toHaveBeenCalled();
+		43 |     expect(spy3).toHaveBeenCalledTimes(1);
+		44 |   });
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+		at Object.<anonymous> (src/use-will-unmount.spec.ts:41:21)
 
-## Learn More
+	PASS  src/App.test.tsx
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+	Test Suites: 1 failed, 1 passed, 2 total
+	Tests:       1 failed, 2 passed, 3 total
+	Snapshots:   0 total
+	Time:        2.802s
+	Ran all test suites.
+	```
