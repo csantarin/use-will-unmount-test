@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 20vmin;
   pointer-events: none;
 }
 
@@ -16,10 +16,6 @@
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -35,4 +31,51 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.App-row {
+  width: 100%;
+}
+
+.App-column {
+  display: inline-block;
+  width: 20vmax;
+  margin: 0 auto;
+  vertical-align: top;
+}
+
+.App-column--full {
+  width: 100%;
+}
+
+.App button {
+  display: block;
+  width: 100%;
+  font-size: calc(10px + 2vmin);
+}
+
+.App code {
+  border: 1px solid #61dafb77;
+  border-radius: 2px;
+  background-color: #61dafb11;
+  padding: 0 4px;
+  margin-top: -1px;
+  margin-bottom: -1px;
+}
+
+.App .large {
+  font-size: 2em;
+}
+
+.Example-column {
+  padding: 0 1em;
+}
+
+.Value-button-group {
+  display: flex;
+  flex-direction: row;
+}
+
+.Value-button {
+  color: #282c34;
 }
