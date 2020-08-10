@@ -1,12 +1,12 @@
 # Unmount Hook React Ref Test
 
 ## Overview
-This source code demonstrates why you need to have a React ref pointing to the latest reference of a function passed as a callback to an unmount-only hook when a component consuming an unmount hook rerenders.
+This source code demonstrates why you need to have a React ref pointing to the latest reference of a function passed as a callback to an unmount-only Hook when a component consuming an unmount Hook rerenders.
 
 This source code contains a what-if sccenario where you remove that ref, plus a test to prove whether or not the no-ref callback will succeed. The callback in this case originates from a prop passed down by a consumer higher in the component hierarchy tree.
 
 > **ℹ NOTE**
-> The hook in this source code already exists as an implementation in an existing library: [`react-use`](https://www.npmjs.com/package/react-use).
+> The Hook in this source code already exists as an implementation in an existing library: [`react-use`](https://www.npmjs.com/package/react-use).
 
 ## Sources
 
@@ -47,7 +47,7 @@ This source code contains a what-if sccenario where you remove that ref, plus a 
 
 		1: called with 0 arguments
 
-		39 |     hook.unmount();
+		39 |     Hook.unmount();
 		40 | 
 		> 41 |     expect(spy).not.toHaveBeenCalled();
 			|                     ^
