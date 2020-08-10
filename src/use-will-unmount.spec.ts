@@ -22,6 +22,7 @@ describe('useWillUnmountWithRef', () => {
   });
 });
 
+// THIS WILL FAIL DURING RERENDER AND WE EXPECT THAT TO HAPPEN.
 describe('useWillUnmountWithoutRef', () => {
   it('should call provided callback if is has been changed', () => {
     const spy = jest.fn();
