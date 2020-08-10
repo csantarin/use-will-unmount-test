@@ -6,6 +6,7 @@ This source code demonstrates why you need to have a React ref pointing to the l
 This source code contains a what-if sccenario where you remove that ref, plus a test to prove whether or not the no-ref callback will succeed. The callback in this case originates from a prop passed down by a consumer higher in the component hierarchy tree.
 
 > **ℹ NOTE**
+>
 > The Hook in this source code already exists as an implementation in an existing library: [`react-use`](https://www.npmjs.com/package/react-use).
 
 ## Sources
