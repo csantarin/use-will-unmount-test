@@ -65,3 +65,7 @@ This source code contains a what-if sccenario where you remove that ref, plus a 
 	Time:        2.802s
 	Ran all test suites.
 	```
+
+## Further instructions
+
+See [the `create-react-app` docs template](docs/create-react-app/README.md).
